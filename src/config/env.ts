@@ -1,4 +1,4 @@
 export const env = {
-  server1: process.env.NEXT_PUBLIC_SERVER1_BASE_URL || 'http://localhost:4001',
-  server2: process.env.NEXT_PUBLIC_SERVER2_BASE_URL || 'http://localhost:4002'
+  server1: process.env.SERVER1_INTERNAL_BASE_URL || 'http://localhost:4001',
+  server2: process.env.SERVER2_INTERNAL_BASE_URL || 'http://localhost:4002'
 }

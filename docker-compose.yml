@@ -12,8 +12,8 @@ services:
     environment:
       NODE_ENV: production
       PORT: 3002
-      NEXT_PUBLIC_SERVER1_BASE_URL: http://server1:4001
-      NEXT_PUBLIC_SERVER2_BASE_URL: http://server2:4002
+      SERVER1_INTERNAL_BASE_URL: http://server1:4001
+      SERVER2_INTERNAL_BASE_URL: http://server2:4002
     depends_on:
       - server1
       - server2

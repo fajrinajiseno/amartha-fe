@@ -57,6 +57,14 @@
       "role": "engineer",
       "employeeId": "ENG-003",
       "id": 5
+    },
+    {
+      "fullName": "dss",
+      "email": "fajrin.ajiseno@gmail.com",
+      "department": "Operations",
+      "role": "engineer",
+      "employeeId": "OPS-001",
+      "id": 6
     }
   ]
 }
