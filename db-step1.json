@@ -1,0 +1,46 @@
+{
+  "departments": [
+    {
+      "id": "1",
+      "name": "Lending"
+    },
+    {
+      "id": "2",
+      "name": "Funding"
+    },
+    {
+      "id": "3",
+      "name": "Operations"
+    },
+    {
+      "id": "4",
+      "name": "Engineering"
+    }
+  ],
+  "basicInfo": [
+    {
+      "fullName": "fajrin",
+      "email": "fajrin.ajiseno@gmail.com",
+      "department": "Engineering",
+      "role": "engineer",
+      "employeeId": "ENG-001",
+      "id": 1
+    },
+    {
+      "fullName": "",
+      "email": "",
+      "department": "",
+      "role": "",
+      "employeeId": "",
+      "id": 2
+    },
+    {
+      "fullName": "fajrin 2",
+      "email": "fajrin.ajiseno@gmail.com",
+      "department": "Engineering",
+      "role": "engineer",
+      "employeeId": "ENG-002",
+      "id": 3
+    }
+  ]
+}

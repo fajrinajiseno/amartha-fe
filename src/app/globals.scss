@@ -1,0 +1,19 @@
+@use '../styles/tokens' as *;
+
+:root {
+  font-family: $font-family;
+  color: $color-text-main;
+  background-color: $color-bg-page;
+  font-size: 16px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: $font-family;
+}

@@ -1,0 +1,35 @@
+@use '../../../styles/tokens' as *;
+$component-name: 'input';
+
+.#{$global-component-namespace}#{$component-name} {
+  width: 100%;
+  padding: $sp-2 $sp-3;
+  font-size: $fs-sm;
+  border-radius: $radius-md;
+  border: 1px solid $color-border;
+  background-color: $color-bg-card;
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
+
+  &:focus {
+    outline: none;
+    border-color: $color-primary;
+    box-shadow: $shadow-focus;
+  }
+
+  &--error {
+    border-color: $color-text-error;
+  }
+
+  &--disabled {
+    background-color: $color-border-muted;
+    color: $color-text-muted;
+    cursor: not-allowed;
+
+    &:focus {
+      border-color: $color-border;
+      box-shadow: none;
+    }
+  }
+}

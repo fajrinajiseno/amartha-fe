@@ -1,0 +1,49 @@
+@use '../../../styles/tokens' as *;
+
+$component-name: 'autocomplete';
+
+.#{$global-component-namespace}#{$component-name} {
+  position: relative;
+  margin-bottom: $sp-4;
+
+  &__label {
+    font-size: $fs-sm;
+    font-weight: 500;
+    color: $color-text-label;
+    margin-bottom: $sp-1;
+    display: inline-block;
+  }
+
+  &__helper {
+    font-size: $fs-xs;
+    color: $color-text-muted;
+    margin-top: $sp-1;
+  }
+
+  &__list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin-top: $sp-1;
+    padding: $sp-1 0;
+    background: $color-bg-card;
+    border-radius: $radius-md;
+    border: 1px solid $color-border-muted;
+    box-shadow: $shadow-card;
+    max-height: 180px;
+    overflow-y: auto;
+    z-index: 20;
+    list-style: none;
+  }
+
+  &__item {
+    padding: $sp-2 $sp-3;
+    font-size: $fs-sm;
+    cursor: pointer;
+
+    &:hover {
+      background: #eff6ff;
+    }
+  }
+}

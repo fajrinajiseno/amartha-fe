@@ -1,0 +1,32 @@
+@use '../../../styles/tokens' as *;
+
+$component-name: 'step-two';
+
+.#{$global-component-namespace}#{$component-name} {
+  &__group {
+    margin-bottom: $sp-4;
+  }
+
+  &__label {
+    font-size: $fs-sm;
+    font-weight: 500;
+    color: $color-text-label;
+    margin-bottom: $sp-1;
+    display: inline-block;
+  }
+
+  &__photo-preview {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $sp-2;
+    margin-top: $sp-2;
+  }
+
+  &__photo-image {
+    width: 300px;
+    border-radius: $radius-md;
+    border: 1px solid $color-border-muted;
+    object-fit: cover;
+  }
+}

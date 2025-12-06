@@ -1,0 +1,26 @@
+@use '../../../styles/tokens' as *;
+
+$component-name: 'form-field';
+
+.#{$global-component-namespace}#{$component-name} {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: $sp-4;
+
+  &__label {
+    font-size: $fs-sm;
+    font-weight: 500;
+    color: $color-text-label;
+    margin-bottom: $sp-1;
+  }
+
+  &__control {
+    width: 100%;
+  }
+
+  &__helper {
+    font-size: $fs-xs;
+    color: $color-text-muted;
+    margin-top: $sp-1;
+  }
+}

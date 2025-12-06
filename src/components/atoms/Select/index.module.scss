@@ -1,0 +1,26 @@
+@use '../../../styles/tokens' as *;
+$component-name: 'select';
+
+.#{$global-component-namespace}#{$component-name} {
+  width: 100%;
+  padding: $sp-2 $sp-3;
+  font-size: $fs-sm;
+  line-height: $lh-normal;
+  font-family: $font-family;
+  border-radius: $radius-md;
+  border: 1px solid $color-border;
+  background-color: $color-bg-card;
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
+  outline: none;
+
+  &:focus {
+    border-color: $color-primary;
+    box-shadow: $shadow-focus;
+  }
+
+  &--error {
+    border-color: $color-text-error;
+  }
+}

@@ -1,0 +1,8 @@
+@use '../../../styles/tokens' as *;
+$component-name: 'error-text';
+
+.#{$global-component-namespace}#{$component-name} {
+  font-size: $fs-xs;
+  color: $color-text-error;
+  margin-top: $sp-1;
+}

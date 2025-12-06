@@ -1,0 +1,10 @@
+@use '../../../styles/tokens' as *;
+$component-name: 'label';
+
+.#{$global-component-namespace}#{$component-name} {
+  font-size: $fs-sm;
+  font-weight: 500;
+  color: $color-text-label;
+  margin-bottom: $sp-1;
+  display: inline-block;
+}

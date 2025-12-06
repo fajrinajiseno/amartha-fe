@@ -1,0 +1,52 @@
+@use '../../../styles/tokens' as *;
+$component-name: 'button';
+
+.#{$global-component-namespace}#{$component-name} {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $sp-2 $sp-4;
+  border-radius: $radius-pill;
+  border: none;
+  font-size: $fs-sm;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    box-shadow 0.15s,
+    transform 0.05s;
+
+  &--primary {
+    background-color: $color-primary;
+    color: #ffffff;
+
+    &:hover {
+      background-color: $color-primary-dark;
+      box-shadow: $shadow-button;
+    }
+  }
+
+  &--secondary {
+    background-color: $color-border-muted;
+    color: $color-text-main;
+
+    &:hover {
+      background-color: $color-border;
+    }
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+
+  &--disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    box-shadow: none;
+
+    &:hover {
+      box-shadow: none;
+      transform: none;
+    }
+  }
+}

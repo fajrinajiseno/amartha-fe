@@ -1,0 +1,49 @@
+{
+  "name": "amartha-fe",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3002 --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "jest",
+    "test:coverage": "jest test --collectCoverage",
+    "deploy": "NEXT_PUBLIC_BASE_PATH=amartha-fe next build && touch out/.nojekyll && gh-pages -d out -t",
+    "server1": "json-server --watch db-step1.json --port 4001",
+    "server2": "json-server --watch db-step2.json --port 4002"
+  },
+  "dependencies": {
+    "framer-motion": "^12.23.12",
+    "json-server": "0.17.4",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "sass": "^1.90.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@testing-library/jest-dom": "^6.7.0",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.4.6",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "gh-pages": "^6.3.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^30.0.5",
+    "jest-environment-jsdom": "^30.0.5",
+    "next": "16.0.7",
+    "prettier": "^3.6.2",
+    "tailwindcss": "^4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5"
+  }
+}
