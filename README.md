@@ -26,9 +26,10 @@ make run-docker
 ```
 
 list of pages:
-wizard admin: [http://localhost:3002/wizard?role=admin](http://localhost:3002/wizard?role=admin)
-wizard ops: [http://localhost:3002/wizard?role=ops](http://localhost:3002/wizard?role=ops)
-employees: [http://localhost:3002/employees](http://localhost:3002/employees)
+
+- wizard admin: [http://localhost:3002/wizard?role=admin](http://localhost:3002/wizard?role=admin)
+- wizard ops: [http://localhost:3002/wizard?role=ops](http://localhost:3002/wizard?role=ops)
+- employees: [http://localhost:3002/employees](http://localhost:3002/employees)
 
 run test with coverage:
 
