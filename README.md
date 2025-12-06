@@ -27,9 +27,9 @@ make run-docker
 
 list of pages:
 
-- wizard admin: [http://localhost:3002/wizard?role=admin](http://localhost:3002/wizard?role=admin)
-- wizard ops: [http://localhost:3002/wizard?role=ops](http://localhost:3002/wizard?role=ops)
-- employees: [http://localhost:3002/employees](http://localhost:3002/employees)
+- wizard admin: [https://amartha-fe-production.up.railway.app/wizard?role=admin](https://amartha-fe-production.up.railway.app/wizard?role=admin)
+- wizard ops: [https://amartha-fe-production.up.railway.app/wizard?role=ops](https://amartha-fe-production.up.railway.app/wizard?role=ops)
+- employees: [https://amartha-fe-production.up.railway.app/employees](https://amartha-fe-production.up.railway.app/employees)
 
 run test with coverage:
 
