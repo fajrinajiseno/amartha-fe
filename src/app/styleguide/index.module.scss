@@ -1,0 +1,55 @@
+@use '../../styles/tokens' as *;
+
+$page-name: 'styleguide';
+
+.#{$global-page-namespace}#{$page-name} {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: $sp-8 $sp-4;
+  background-color: $color-bg-page;
+
+  &__card {
+    width: 100%;
+    max-width: 720px;
+    background-color: $color-bg-card;
+    border-radius: $radius-lg;
+    padding: $sp-6;
+    box-shadow: $shadow-card;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: $fs-lg;
+    font-weight: 600;
+  }
+
+  &__subtitle {
+    margin: $sp-1 0 0 0;
+    font-size: $fs-sm;
+    color: $color-text-muted;
+  }
+
+  &__section {
+    margin-top: $sp-6;
+  }
+
+  &__section-title {
+    font-size: $fs-md;
+    margin: 0 0 $sp-3 0;
+  }
+
+  &__row {
+    display: flex;
+    gap: $sp-2;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+    gap: $sp-3;
+  }
+}

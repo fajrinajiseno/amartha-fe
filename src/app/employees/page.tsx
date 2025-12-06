@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { Suspense, useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
 import styles from './index.module.scss'
@@ -12,6 +12,14 @@ import { getBasicInfo, getDetails } from '@/lib/api'
 const DEFAULT_LIMIT = 10
 
 export default function EmployeesPage() {
+  return (
+    <Suspense>
+      <EmployeesPageContent />
+    </Suspense>
+  )
+}
+
+function EmployeesPageContent() {
   const searchParams = useSearchParams()
   const router = useRouter()
 

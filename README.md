@@ -18,6 +18,13 @@ pnpm server2
 pnpm dev
 ```
 
+or if prefer using docker:
+
+```bash
+colima start --memory 8 --cpu 4
+make run-docker
+```
+
 list of pages:
 wizard admin: [http://localhost:3002/wizard?role=admin](http://localhost:3002/wizard?role=admin)
 wizard ops: [http://localhost:3002/wizard?role=ops](http://localhost:3002/wizard?role=ops)
@@ -35,8 +42,6 @@ run selected test:
 pnpm test tests/components/atoms/ErrorText/index.test.tsx
 ```
 
-## Deploy on Vercel
+## Evidence
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+evidences [video](https://drive.google.com/file/d/1BmeV9wJ16YrZAsHNFIXLvDQ_4Kgbow3L/view?usp=sharing)

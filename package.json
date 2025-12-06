@@ -10,8 +10,8 @@
     "test": "jest",
     "test:coverage": "jest test --collectCoverage",
     "deploy": "NEXT_PUBLIC_BASE_PATH=amartha-fe next build && touch out/.nojekyll && gh-pages -d out -t",
-    "server1": "json-server --watch db-step1.json --port 4001",
-    "server2": "json-server --watch db-step2.json --port 4002"
+    "server1": "json-server --watch db-step1.json --port 4001 --host 0.0.0.0",
+    "server2": "json-server --watch db-step2.json --port 4002 --host 0.0.0.0"
   },
   "dependencies": {
     "framer-motion": "^12.23.12",
