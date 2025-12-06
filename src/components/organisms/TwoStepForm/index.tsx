@@ -221,7 +221,7 @@ export function TwoStepForm({ mode }: Props) {
     try {
       const res = await getBasicInfo({ department: departmentName })
 
-      const existingCount = res.length
+      const existingCount = res.data.length
       const next = existingCount + 1
       const seq = String(next).padStart(3, '0')
 
@@ -350,7 +350,10 @@ export function TwoStepForm({ mode }: Props) {
 
       setSubmitProgress(75)
       setSubmitStage('Saving employment details...')
-      await submitDetails(step2)
+      await submitDetails({
+        ...step2,
+        ...(step1.employeeId ? { employeeId: step1.employeeId } : {})
+      })
       await sleep(3000)
 
       setSubmitProgress(100)

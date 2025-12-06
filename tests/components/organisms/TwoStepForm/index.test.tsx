@@ -74,9 +74,9 @@ describe('Component -> Organisms -> TwoStepForm', () => {
   it('admin: submits basicInfo with step1 data and details with step2', async () => {
     const { FILE_BASE64 } = setupFileReaderMock()
 
-    getBasicInfoMock.mockResolvedValueOnce(getBasicInfo)
-    searchDepartmentsMock.mockResolvedValueOnce(searchDepartments)
-    searchLocationsMock.mockResolvedValueOnce(searchLocations)
+    getBasicInfoMock.mockResolvedValueOnce({ data: getBasicInfo })
+    searchDepartmentsMock.mockResolvedValueOnce({ data: searchDepartments })
+    searchLocationsMock.mockResolvedValueOnce({ data: searchLocations })
     render(<TwoStepForm mode="admin" />)
 
     const fullName = screen.getByLabelText('Full Name') as HTMLInputElement
@@ -176,7 +176,8 @@ describe('Component -> Organisms -> TwoStepForm', () => {
       employmentType: 'Full-time',
       notes: 'notes Engineering',
       officeLocation: 'Jakarta',
-      photoBase64: FILE_BASE64
+      photoBase64: FILE_BASE64,
+      employeeId: 'ENG-003'
     })
     expect(pushMock).toHaveBeenCalledWith('/employees')
   })
@@ -184,9 +185,9 @@ describe('Component -> Organisms -> TwoStepForm', () => {
   it('admin: submits basicInfo with step1 data but error', async () => {
     setupFileReaderMock()
 
-    getBasicInfoMock.mockResolvedValueOnce(getBasicInfo)
-    searchDepartmentsMock.mockResolvedValueOnce(searchDepartments)
-    searchLocationsMock.mockResolvedValueOnce(searchLocations)
+    getBasicInfoMock.mockResolvedValueOnce({ data: getBasicInfo })
+    searchDepartmentsMock.mockResolvedValueOnce({ data: searchDepartments })
+    searchLocationsMock.mockResolvedValueOnce({ data: searchLocations })
     submitBasicInfoMock.mockRejectedValueOnce(
       new Error('error submit basic info')
     )
@@ -273,7 +274,7 @@ describe('Component -> Organisms -> TwoStepForm', () => {
   })
 
   it('ops: still calls submitBasicInfo with empty step1 and details with step2', async () => {
-    searchLocationsMock.mockResolvedValueOnce(searchLocations)
+    searchLocationsMock.mockResolvedValueOnce({ data: searchLocations })
     render(<TwoStepForm mode="ops" />)
 
     const employmentType = screen.getByLabelText(

@@ -5,14 +5,13 @@ import styles from './index.module.scss'
 import { Label } from '@/components/atoms/Label'
 import { Input } from '@/components/atoms/Input'
 import { ErrorText } from '@/components/atoms/ErrorText'
-
-export type Option = { id: string | number; name: string }
+import { Response, SearchOption } from '@/lib/api'
 
 type Props = {
   label: string
   name: string
   value: string
-  search: (params: Record<string, string>) => Promise<Option[]>
+  search: (params: Record<string, string>) => Promise<Response<SearchOption>>
   onSelect: (name: string) => void
   error?: string
   placeholder?: string
@@ -33,7 +32,7 @@ export function AsyncAutocompleteField({
   disabled
 }: Props) {
   const [query, setQuery] = useState(value)
-  const [options, setOptions] = useState<Option[]>([])
+  const [options, setOptions] = useState<SearchOption[]>([])
   const [loading, setLoading] = useState(false)
   const [open, setOpen] = useState(false)
 
@@ -59,7 +58,7 @@ export function AsyncAutocompleteField({
       try {
         const result = await search({ name_like: query })
         if (!cancelled) {
-          setOptions(result)
+          setOptions(result.data)
         }
       } catch (err) {
         if (!cancelled) {
@@ -95,7 +94,7 @@ export function AsyncAutocompleteField({
     setOpen(true)
   }
 
-  function handleSelect(option: Option) {
+  function handleSelect(option: SearchOption) {
     setQuery(option.name)
     onSelect(option.name)
     setOpen(false)

@@ -1,0 +1,91 @@
+@use '../../../styles/tokens' as *;
+
+$component-name: 'employees-table';
+
+.#{$global-component-namespace}#{$component-name} {
+  &__wrapper {
+    border-radius: $radius-lg;
+    border: 1px solid $color-border-muted;
+    overflow: auto;
+    background-color: $color-bg-card;
+    box-shadow: $shadow-card;
+  }
+
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: $fs-sm;
+  }
+
+  &__th,
+  &__td {
+    padding: $sp-2 $sp-3;
+    text-align: left;
+    border-bottom: 1px solid $color-border-muted;
+    vertical-align: middle;
+  }
+
+  &__th {
+    background-color: #f9fafb;
+    font-weight: 500;
+    font-size: $fs-xs;
+    color: $color-text-muted;
+  }
+
+  &__row:nth-child(even) {
+    background-color: #f9fafb;
+  }
+
+  &__avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: $radius-pill;
+    object-fit: cover;
+    display: block;
+  }
+
+  &__avatar-placeholder {
+    width: 40px;
+    height: 40px;
+    border-radius: $radius-pill;
+    background-color: $color-border-muted;
+  }
+
+  &__empty-state {
+    text-align: center;
+    padding: $sp-4;
+    color: $color-text-muted;
+    font-size: $fs-sm;
+  }
+
+  &__skeleton-row {
+    animation: employees-table-skeleton-pulse 1.4s ease-in-out infinite;
+  }
+
+  &__skeleton-block {
+    border-radius: $radius-pill;
+    height: 12px;
+    background: linear-gradient(
+      90deg,
+      $color-border-muted 0%,
+      #f3f4f6 50%,
+      $color-border-muted 100%
+    );
+    background-size: 200% 100%;
+  }
+}
+
+@keyframes employees-table-skeleton-pulse {
+  0% {
+    opacity: 0.6;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(1px);
+  }
+  100% {
+    opacity: 0.6;
+    transform: translateY(0);
+  }
+}

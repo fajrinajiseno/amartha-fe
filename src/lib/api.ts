@@ -1,26 +1,26 @@
 import { env } from '@/config/env'
 import type { Step1Data, Step2Data } from '@/types/wizard'
+import type { BasicInfo, Details } from '@/types/employee'
 
 export type SearchOption = {
   id: string | number
   name: string
 }
 
-export type BasicInfo = {
-  fullName: string
-  email: string
-  department: string
-  role: string
-  employeeId: string
-  id: number
+export interface Response<T> {
+  data: T[]
+  total?: number
 }
 
 async function fetchWithQuery<T>(
   baseUrl: string,
   path: string,
   params: Record<string, string>
-): Promise<T[]> {
-  if (!params) return []
+): Promise<Response<T>> {
+  if (!params)
+    return {
+      data: []
+    }
 
   const url = new URL(`${baseUrl}/${path}`)
   url.search = new URLSearchParams(params).toString()
@@ -33,7 +33,11 @@ async function fetchWithQuery<T>(
   }
 
   const data = (await res.json()) as T[]
-  return data
+  const total = Number(res.headers.get('X-Total-Count'))
+  return {
+    data,
+    total
+  }
 }
 
 async function postJSON(baseUrl: string, path: string, body: unknown) {
@@ -55,19 +59,25 @@ async function postJSON(baseUrl: string, path: string, body: unknown) {
 
 export async function getBasicInfo(
   params: Record<string, string>
-): Promise<BasicInfo[]> {
+): Promise<Response<BasicInfo>> {
   return fetchWithQuery<BasicInfo>(env.server1, 'basicInfo', params)
+}
+
+export async function getDetails(
+  params: Record<string, string>
+): Promise<Response<Details>> {
+  return fetchWithQuery<Details>(env.server2, 'details', params)
 }
 
 export async function searchDepartments(
   params: Record<string, string>
-): Promise<SearchOption[]> {
+): Promise<Response<SearchOption>> {
   return fetchWithQuery<SearchOption>(env.server1, 'departments', params)
 }
 
 export async function searchLocations(
   params: Record<string, string>
-): Promise<SearchOption[]> {
+): Promise<Response<SearchOption>> {
   return fetchWithQuery<SearchOption>(env.server2, 'locations', params)
 }
 

@@ -1,8 +1,6 @@
 import { render, screen, fireEvent, act } from '@testing-library/react'
-import {
-  AsyncAutocompleteField,
-  Option
-} from '@/components/molecules/AsyncAutocompleteField'
+import { AsyncAutocompleteField } from '@/components/molecules/AsyncAutocompleteField'
+import { SearchOption } from '@/lib/api'
 
 describe('Component -> Molecules -> AsyncAutocompleteField', () => {
   beforeEach(() => {
@@ -14,8 +12,8 @@ describe('Component -> Molecules -> AsyncAutocompleteField', () => {
   })
 
   it('debounces search calls', async () => {
-    const options: Option[] = [{ id: 1, name: 'Engineering' }]
-    const search = jest.fn().mockResolvedValue(options)
+    const options: SearchOption[] = [{ id: 1, name: 'Engineering' }]
+    const search = jest.fn().mockResolvedValue({ data: options })
     const onSelect = jest.fn()
 
     render(
@@ -46,8 +44,8 @@ describe('Component -> Molecules -> AsyncAutocompleteField', () => {
   })
 
   it('calls onSelect only when an option is clicked', async () => {
-    const options: Option[] = [{ id: 1, name: 'Engineering' }]
-    const search = jest.fn().mockResolvedValue(options)
+    const options: SearchOption[] = [{ id: 1, name: 'Engineering' }]
+    const search = jest.fn().mockResolvedValue({ data: options })
     const onSelect = jest.fn()
 
     render(
@@ -82,8 +80,8 @@ describe('Component -> Molecules -> AsyncAutocompleteField', () => {
   })
 
   it('reverts to last valid value on blur when string not matched', async () => {
-    const options: Option[] = [{ id: 1, name: 'Engineering' }]
-    const search = jest.fn().mockResolvedValue(options)
+    const options: SearchOption[] = [{ id: 1, name: 'Engineering' }]
+    const search = jest.fn().mockResolvedValue({ data: options })
     const onSelect = jest.fn()
 
     render(

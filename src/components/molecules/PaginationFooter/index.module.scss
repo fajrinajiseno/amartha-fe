@@ -1,0 +1,21 @@
+@use '../../../styles/tokens' as *;
+
+$component-name: 'pagination-footer';
+
+.#{$global-component-namespace}#{$component-name} {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: $fs-sm;
+  margin-top: $sp-4;
+  font-family: $font-family;
+
+  &__info {
+    color: $color-text-muted;
+  }
+
+  &__actions {
+    display: flex;
+    gap: $sp-2;
+  }
+}
