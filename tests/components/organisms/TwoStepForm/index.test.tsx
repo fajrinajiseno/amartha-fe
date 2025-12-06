@@ -145,12 +145,10 @@ describe('Component -> Organisms -> TwoStepForm', () => {
       expect(
         await screen.findByTestId('two-step-form-progress')
       ).toHaveAttribute('style', 'width: 25%;')
+      expect(
+        await screen.findByTestId('two-step-form-progress-stage')
+      ).toHaveTextContent('⏳ Submitting basicInfo…')
     })
-
-    expect(screen.getByTestId('two-step-form-progress')).toHaveAttribute(
-      'style',
-      'width: 50%;'
-    )
 
     await act(async () => {
       jest.advanceTimersByTime(3000)
@@ -160,6 +158,9 @@ describe('Component -> Organisms -> TwoStepForm', () => {
       'style',
       'width: 75%;'
     )
+    expect(
+      await screen.findByTestId('two-step-form-progress-stage')
+    ).toHaveTextContent('⏳ Submitting details…')
 
     await act(async () => {
       jest.advanceTimersByTime(3000)
@@ -256,6 +257,10 @@ describe('Component -> Organisms -> TwoStepForm', () => {
 
     await act(async () => {
       fireEvent.click(submitBtn)
+    })
+
+    await act(async () => {
+      jest.advanceTimersByTime(3000)
     })
 
     expect(submitBasicInfoMock).toHaveBeenCalledWith({

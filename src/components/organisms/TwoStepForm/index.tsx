@@ -341,20 +341,21 @@ export function TwoStepForm({ mode }: Props) {
       const basicInfoPayload = isAdminMode ? step1 : emptyStep1
 
       setSubmitProgress(25)
-      setSubmitStage('Saving basic info...')
+      setSubmitStage('⏳ Submitting basicInfo…')
+      await sleep(3000)
       await submitBasicInfo(basicInfoPayload)
+      setSubmitStage('✅ basicInfo saved!')
 
       setSubmitProgress(50)
-      setSubmitStage('Processing basic info...')
-      await sleep(3000)
 
       setSubmitProgress(75)
-      setSubmitStage('Saving employment details...')
+      setSubmitStage('⏳ Submitting details…')
+      await sleep(3000)
       await submitDetails({
         ...step2,
         ...(step1.employeeId ? { employeeId: step1.employeeId } : {})
       })
-      await sleep(3000)
+      setSubmitStage('🎉 All data processed successfully!')
 
       setSubmitProgress(100)
       setSubmitStage('Finished!')
@@ -465,7 +466,10 @@ export function TwoStepForm({ mode }: Props) {
               />
             </div>
             {submitStage && (
-              <div className={styles['c-two-step-form__progress-label']}>
+              <div
+                className={styles['c-two-step-form__progress-label']}
+                data-testid="two-step-form-progress-stage"
+              >
                 {submitStage}
               </div>
             )}
