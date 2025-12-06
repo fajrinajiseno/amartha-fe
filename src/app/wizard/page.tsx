@@ -1,13 +1,18 @@
 import { TwoStepForm } from '@/components/organisms/TwoStepForm'
 
-type PageProps = {
-  searchParams?: { [key: string]: string | string[] | undefined }
+type WizardSearchParams = {
+  role?: string
 }
 
-export default function Page({ searchParams }: PageProps) {
-  const roleParam = searchParams?.role
+export default async function WizardPage({
+  searchParams
+}: {
+  searchParams: Promise<WizardSearchParams>
+}) {
+  const params = await searchParams
+  const role = params.role
 
-  const mode: 'admin' | 'ops' = roleParam === 'ops' ? 'ops' : 'admin'
+  const mode: 'admin' | 'ops' = role === 'ops' ? 'ops' : 'admin'
 
   return <TwoStepForm mode={mode} />
 }

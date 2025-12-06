@@ -41,6 +41,14 @@
       "role": "engineer",
       "employeeId": "ENG-002",
       "id": 3
+    },
+    {
+      "fullName": "fa",
+      "email": "fajrin.ajiseno@gmail.com",
+      "department": "Lending",
+      "role": "engineer",
+      "employeeId": "LEN-001",
+      "id": 4
     }
   ]
 }

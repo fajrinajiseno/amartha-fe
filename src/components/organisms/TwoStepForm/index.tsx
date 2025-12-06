@@ -351,6 +351,7 @@ export function TwoStepForm({ mode }: Props) {
       setSubmitProgress(75)
       setSubmitStage('Saving employment details...')
       await submitDetails(step2)
+      await sleep(3000)
 
       setSubmitProgress(100)
       setSubmitStage('Finished!')
@@ -457,6 +458,7 @@ export function TwoStepForm({ mode }: Props) {
               <div
                 className={styles['c-two-step-form__progress-bar']}
                 style={{ width: `${submitProgress}%` }}
+                data-testid="two-step-form-progress"
               />
             </div>
             {submitStage && (
@@ -504,7 +506,7 @@ export function TwoStepForm({ mode }: Props) {
                 ? styles['c-two-step-form__toast--error']
                 : styles['c-two-step-form__toast--success']
             }`}
-            data-testid="two-step-from-toast"
+            data-testid="two-step-form-toast"
           >
             {toast.message}
           </div>

@@ -142,7 +142,24 @@ describe('Component -> Organisms -> TwoStepForm', () => {
 
     await act(async () => {
       fireEvent.click(submitBtn)
+      expect(
+        await screen.findByTestId('two-step-form-progress')
+      ).toHaveAttribute('style', 'width: 25%;')
     })
+
+    expect(screen.getByTestId('two-step-form-progress')).toHaveAttribute(
+      'style',
+      'width: 50%;'
+    )
+
+    await act(async () => {
+      jest.advanceTimersByTime(3000)
+    })
+
+    expect(screen.getByTestId('two-step-form-progress')).toHaveAttribute(
+      'style',
+      'width: 75%;'
+    )
 
     await act(async () => {
       jest.advanceTimersByTime(3000)
@@ -165,7 +182,7 @@ describe('Component -> Organisms -> TwoStepForm', () => {
   })
 
   it('admin: submits basicInfo with step1 data but error', async () => {
-    const { FILE_BASE64 } = setupFileReaderMock()
+    setupFileReaderMock()
 
     getBasicInfoMock.mockResolvedValueOnce(getBasicInfo)
     searchDepartmentsMock.mockResolvedValueOnce(searchDepartments)
@@ -249,7 +266,7 @@ describe('Component -> Organisms -> TwoStepForm', () => {
     })
     expect(submitDetailsMock).toHaveBeenCalledTimes(0)
     expect(pushMock).toHaveBeenCalledTimes(0)
-    const toast = await screen.findByTestId('two-step-from-toast')
+    const toast = await screen.findByTestId('two-step-form-toast')
     expect(toast).toHaveTextContent(
       'Failed to submit employee data. Please try again.'
     )
@@ -288,6 +305,9 @@ describe('Component -> Organisms -> TwoStepForm', () => {
       fireEvent.click(submitBtn)
     })
 
+    await act(async () => {
+      jest.advanceTimersByTime(3000)
+    })
     await act(async () => {
       jest.advanceTimersByTime(3000)
     })

@@ -8,3 +8,5 @@ jest.mock('next/image', () => ({
     return 'Next image stub'
   }
 }))
+
+jest.spyOn(console, 'error').mockImplementation(() => {})
